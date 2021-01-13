@@ -1,4 +1,4 @@
-/*
+import React from "react";
 import {withRouter} from "next/router";
 import Layout from "../../components/Layout/Layout";
 const Pdp = ({product}) => {
@@ -78,4 +78,3 @@ export async function getStaticProps({params}) {
 }
 
 export default withRouter(Pdp);
-*/
