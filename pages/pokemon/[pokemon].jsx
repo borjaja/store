@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import styles from "./Pokemon.module.css";
+import styles from "./pokemon.module.css";
 
 const pokemon = ({pokemon}) => (
     <>
