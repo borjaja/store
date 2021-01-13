@@ -1,22 +1,10 @@
-import React from "react";
-import Head from "next/head";
-import {useRouter} from "next/router";
+import Layout from "../components/Layout/Layout";
 
-const Home = () => {
-    const router = useRouter();
-    const handleClick = (e) => {
-        router.push("/pokemon/pikachu");
-    };
+const Index = (props) => {
     return (
-        <>
-            <Head>
-                <title>My Next.js site!</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </Head>
-            <div>Wellcome, explorer!</div>
-            <button onClick={handleClick}> Click me!</button>
-        </>
+        <Layout>
+            <div>Contenido principal</div>
+        </Layout>
     );
 };
-
-export default Home;
+export default Index;
