@@ -1,24 +1,37 @@
 import Card from "../../components/Card/Card";
 import Layout from "../../components/Layout/Layout";
 import styles from "./products.module.scss";
+import {request} from "../../utils/datocms";
 
-const Plp = ({products}) => {
+const Plp = ({data}) => {
     return (
         <Layout>
             <div className={styles.product_list}>
-                {products.map((product, index) => (
-                    <Card product={product} key={index} index={index} />
+                {data.allProducts.map((product, index) => (
+                    <Card product={product} key={index} />
                 ))}
             </div>
         </Layout>
     );
 };
 
-export async function getStaticProps(context) {
-    const res = await fetch("https://my-json-server.typicode.com/jubs16/Products/Products");
-    const products = await res.json();
+const HOMEPAGE_QUERY = `query{
+    allProducts {
+      slug
+      title
+      urlImg
+      price
+    }
+  }`;
 
-    return {props: {products}};
+export async function getStaticProps() {
+    const data = await request({
+        query: HOMEPAGE_QUERY,
+        /*variables: {limit: 10},*/
+    });
+    return {
+        props: {data},
+    };
 }
 
 export default Plp;

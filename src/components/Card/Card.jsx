@@ -3,10 +3,10 @@ import styleCard from "./card.module.scss";
 
 const Card = ({product, index}) => {
     return (
-        <Link href={`product/${index}`}>
+        <Link href={`product/${product.slug}`}>
             <a className={styleCard.card}>
-                <img src={product.imgUrl} alt="" className="product__image" />
-                <p>{product.name}</p>
+                <img src={product.urlImg} alt="" className="product__image" />
+                <p>{product.title}</p>
                 <span>${product.price}</span>
             </a>
         </Link>
