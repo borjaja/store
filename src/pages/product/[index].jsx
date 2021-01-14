@@ -10,7 +10,7 @@ const Pdp = ({ product }) => {
         <Layout>
             <div className="product">
                 <h2 className="product__title">{product.title}</h2>
-                <img src={product.urlImg} alt="" className="product__image" />
+                <img src={product.imgurl} alt="" className="product__image" />
                 <p>{product.description}</p>
                 <div className="product__price-button-container">
                     <div className="product__price">${product.price}</div>
@@ -48,13 +48,13 @@ export async function getStaticPaths() {
 }
 
 const PRODUCT_QUERY = `query ($slug: String){
-    product(filter: { idProduct: { eq: $slug } }) {
+    product(filter: { idproduct: { eq: $slug } }) {
       slug
       title
-      urlImg
+      imgurl
       price
       description
-      idProduct
+      idproduct
     }
   }`;
 
