@@ -1,9 +1,9 @@
 import Card from "../../components/Card/Card";
 import Layout from "../../components/Layout/Layout";
 import styles from "./products.module.scss";
-import {request} from "../../utils/datocms";
+import { request } from "../../utils/datocms";
 
-const Plp = ({data}) => {
+const Plp = ({ data }) => {
     return (
         <Layout>
             <div className={styles.product_list}>
@@ -19,7 +19,7 @@ const HOMEPAGE_QUERY = `query{
     allProducts {
       slug
       title
-      urlImg
+      imgurl
       price
     }
   }`;
@@ -30,7 +30,7 @@ export async function getStaticProps() {
         /*variables: {limit: 10},*/
     });
     return {
-        props: {data},
+        props: { data },
     };
 }
 

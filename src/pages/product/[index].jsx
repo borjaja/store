@@ -1,9 +1,9 @@
 import React from "react";
-import {withRouter} from "next/router";
+import { withRouter } from "next/router";
 import Layout from "../../components/Layout/Layout";
-import {request} from "../../utils/datocms";
+import { request } from "../../utils/datocms";
 
-const Pdp = ({product}) => {
+const Pdp = ({ product }) => {
     console.log("text");
     console.log(product);
     return (
@@ -26,7 +26,7 @@ const HOMEPAGE_QUERY = `query{
     allProducts {
       slug
       title
-      urlImg
+      imgurl
       price
       description
     }
@@ -58,13 +58,13 @@ const PRODUCT_QUERY = `query ($slug: String){
     }
   }`;
 
-export async function getStaticProps({index}) {
+export async function getStaticProps({ index }) {
     const data = await request({
         query: PRODUCT_QUERY,
-        variables: {slug: index},
+        variables: { slug: index },
     });
     return {
-        props: {product: data.product},
+        props: { product: data.product },
     };
 }
 
